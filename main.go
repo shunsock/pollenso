@@ -12,13 +12,19 @@ func main() {
 	today := time.Now().Format("20060102")
 
   // コマンドライン引数の取得
-	cityCode := flag.String("citycode", "13103", "市区町村コード（例: 13103）")
+	cityName := flag.String("cityname", "東京都千代田区", "都市名")
 	start := flag.String("start", today, "取得開始年月日 (YYYYMMDD) 例: 20250208")
 	end := flag.String("end", today, "取得終了年月日 (YYYYMMDD) 例: 20250214")
 	flag.Parse()
 
+  // city codeを取得
+  cityCode, err := getCityCodeFuzzy(*cityName)
+  if err != nil {
+    log.Fatalf("エラー: %v", err)
+  }
+
 	// APIからデータを取得
-	data, err := getPollenData(*cityCode, *start, *end)
+	data, err := getPollenData(cityCode, *start, *end)
 	if err != nil {
 		log.Fatalf("エラー: %v", err)
 	}
