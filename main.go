@@ -27,7 +27,7 @@ func main() {
 	for _, d := range data {
 		fmt.Printf(
       "日時: %s, 花粉飛散数: %d\n",
-			d.Date.Format("2006-01-02 11:45:14"),
+      d.Date.Format("2006-01-02 15:04:05"),
       d.Pollen,
     )
 	}
