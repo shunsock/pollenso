@@ -106,4 +106,3 @@ func parseRecord(record []string) (PollenData, error) {
 		Pollen:   pollen,
 	}, nil
 }
-
