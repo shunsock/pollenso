@@ -30,7 +30,11 @@ func main() {
 	}
 
 	// 取得したデータを表示
+  currentTime := time.Now()
 	for _, d := range data {
+    if d.Date.After(currentTime) {
+        continue
+    }
 		fmt.Printf(
 			"日時: %s, 花粉飛散数: %d\n",
 			d.Date.Format("2006-01-02 15:04:05"),
