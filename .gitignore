@@ -26,3 +26,6 @@ go.work.sum
 
 # Output of the go command
 pollenso
+
+# Nix
+result
